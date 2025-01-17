@@ -26,7 +26,6 @@ namespace OrderingNumbers.Tests
 
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal("Input cannot be null or empty.", badRequestResult.Value);
-            Console.WriteLine("QuickSort_InvalidInput_ReturnsBadRequest: Test Passed");
         }
 
         [Fact]
@@ -38,7 +37,6 @@ namespace OrderingNumbers.Tests
 
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
             Assert.Equal("Input cannot be null or empty.", badRequestResult.Value);
-            Console.WriteLine("QuickSort_EmptyArray_ReturnsBadRequest: Test Passed");
         }
 
         [Fact]
@@ -52,8 +50,7 @@ namespace OrderingNumbers.Tests
             Assert.NotNull(okResult.Value);
 
             var sortedNumbers = Assert.IsAssignableFrom<int[]>(((dynamic)okResult.Value).sortedNumbers);
-            Assert.Equal(new int[] { -1, 0, 2, 3, 5 }, sortedNumbers);
-            Console.WriteLine("QuickSort_ValidInput_ReturnsSortedNumbers: Test Passed");
+            Assert.Equal(new int[] { -1, 0, 2, 3, 5 }, sortedNumbers); 
         }
 
         [Fact]
@@ -68,7 +65,6 @@ namespace OrderingNumbers.Tests
 
             var sortedNumbers = Assert.IsAssignableFrom<int[]>(((dynamic)okResult.Value).sortedNumbers);
             Assert.Equal(new int[] { -5, -1, 0, 2, 3, 5 }, sortedNumbers);
-            Console.WriteLine("QuickSort_NegativeAndPositiveNumbers_ReturnsSortedNumbers: Test Passed");
         }
     }
 }
